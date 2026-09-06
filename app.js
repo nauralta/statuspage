@@ -299,7 +299,7 @@
     fetch(api + '/api/status/public/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, groupIds: selectedGroupIds('subscribe-group') })
+      body: JSON.stringify({ email: email, groupIds: selectedGroupIds('subscribe-group'), language: currentLang })
     })
       .then(function () {
         out.textContent = t('subscribe.thanks');
