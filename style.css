@@ -57,10 +57,13 @@ main.wrap { padding-top: 40px; padding-bottom: 56px; display: flex; flex-directi
 .hero-bad h1, .hero-bad .hero-dot { color: var(--danger); }
 .hero-info { background: rgba(144,132,224,.12); }
 .hero-info h1, .hero-info .hero-dot { color: var(--brand-indigo); }
+.hero-toggle-all { all: unset; box-sizing: border-box; position: absolute; top: 14px; right: 16px; cursor: pointer; padding: 5px 12px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); color: var(--text-mut); font-family: var(--font-sans); font-size: 0.75rem; }
+.hero-toggle-all:hover { color: var(--text-hi); border-color: var(--brand-pink); }
+@media (max-width: 480px) {
+  .hero { flex-direction: column; padding-top: 46px; }
+  .hero-toggle-all { top: 10px; right: 12px; }
+}
 .card { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 26px 28px; }
-.groups-toolbar { display: flex; justify-content: flex-end; margin-bottom: 12px; }
-.toggle-all { all: unset; box-sizing: border-box; cursor: pointer; padding: 6px 14px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); color: var(--text-mut); font-family: var(--font-sans); font-size: 0.8125rem; }
-.toggle-all:hover { color: var(--text-hi); border-color: var(--brand-pink); }
 .group-title { margin: 0; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
 button.group-head { all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; width: 100%; cursor: pointer; }
 .group-head-right { display: flex; align-items: center; gap: 10px; }
@@ -123,8 +126,14 @@ button.group-head { all: unset; box-sizing: border-box; display: flex; align-ite
 .subscribe input:focus { outline: none; border-color: var(--brand-pink); box-shadow: 0 0 0 3px rgba(219,86,208,.35); }
 .subscribe button { padding: 11px 20px; border-radius: var(--r-sm); border: none; background: var(--grad-brand); color: #fff; font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.02em; cursor: pointer; box-shadow: var(--glow-accent); transition: transform .12s ease; }
 .subscribe button:hover { transform: translateY(-1px); }
-.subscribe-categories { width: 100%; display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 2px 0 4px; }
-.subscribe-category { display: flex; align-items: center; gap: 6px; color: var(--text-mut); font-size: 0.875rem; cursor: pointer; }
+.categories-dropdown { width: 100%; margin: 2px 0 4px; }
+.categories-dropdown summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--bg-1); color: var(--text-mut); font-size: 0.875rem; }
+.categories-dropdown summary::-webkit-details-marker { display: none; }
+.categories-dropdown summary:hover { color: var(--text-hi); border-color: var(--brand-pink); }
+.categories-dropdown summary::after { content: "\25be"; margin-left: 2px; }
+.categories-dropdown[open] summary::after { content: "\25b4"; }
+.subscribe-categories { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg-1); }
+.subscribe-category { display: flex; align-items: center; gap: 8px; color: var(--text-mut); font-size: 0.875rem; cursor: pointer; }
 #manage-section { width: 100%; margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line); }
 .update { padding: 16px 0; border-top: 1px solid var(--line); }
 .update:first-child { border-top: none; padding-top: 0; }
